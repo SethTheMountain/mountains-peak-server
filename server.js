@@ -12,6 +12,10 @@ const publicRoutes = require('./routes/public'); // Import public routes
 const adminRoutes = require('./routes/admin');   // Import admin routes
 app.use('/api', publicRoutes);                   // Mount public routes at /api
 app.use('/api/admin', adminRoutes);              // Mount admin routes at /api/admin
+app.use(cors({
+  origin: 'https://mountain-peak-client.onrender.com', // Your frontend URL
+  credentials: true,
+}));
 
 // Start the Server only if this file is run directly
 if (require.main === module) {
